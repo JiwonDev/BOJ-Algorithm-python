@@ -26,13 +26,11 @@
 # for index in find_indexes(value, array), 배열안에 해당 값(x)의 모든 인덱스를 찾아줌.
 # find_indexes = lambda x, lst: [idx for idx, value in enumerate(lst) if value == x]
 '''
-
-
 import math
 import sys
+
 get_line: iter = lambda: map(int, sys.stdin.readline().rstrip().split())
 get_input: int = lambda: int(sys.stdin.readline())
-print_list = lambda lst: print('\n'.join(map(str, lst)))
 
 def solution():
     pass
