@@ -1,6 +1,4 @@
-import math
 import sys
-
 
 def find_parents(graph: list[list], root: int = 1) -> list:
     """
