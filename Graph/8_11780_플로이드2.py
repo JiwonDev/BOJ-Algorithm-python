@@ -24,7 +24,6 @@ def floyd_warshall(n: int, dis: list, mid_node: list):
                     dis[start][end] = new_route
                     mid_node[start][end] = temp
 
-
 def get_path(start, end, mid_node, path):
     if mid_node[start][end] == (-1):
         # start -> end 까지 중간 노드가 없다면 (연결 되어있다면)
@@ -33,6 +32,7 @@ def get_path(start, end, mid_node, path):
             path.append(end + 1)
     else:
         # start -> ??? -> end 라면
+        # s -> m1- > m1 -> m2 -> m3 ->end
         get_path(start, mid_node[start][end], mid_node, path)
         path.pop()  # mid(???)가 중복으로 들어가는걸 방지
         get_path(mid_node[start][end], end, mid_node, path)
@@ -48,6 +48,7 @@ def main():
         start, end, cost = get_line()
         graph[start - 1][end - 1] = min(graph[start - 1][end - 1], cost)
 
+    # 모든 정점간의 최단거리를 구한다.
     floyd_warshall(n, graph, mid_node)
 
     for line in graph:
